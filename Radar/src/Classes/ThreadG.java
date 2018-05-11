@@ -19,7 +19,7 @@ import javax.imageio.ImageIO;
  *
  * @author comp9
  */
-public class ThreadG implements Runnable {
+public class ThreadG {
 
     TelaPrincipal frame;
     Graphics grafico;

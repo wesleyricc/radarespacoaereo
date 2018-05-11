@@ -319,7 +319,7 @@ public class EntradaDados extends javax.swing.JInternalFrame {
 
     private void botaoInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoInserirActionPerformed
         // TODO add your handling code here:
-        frame.iniciaThread();
+        
         try {
             vel = verificaDouble(textVelocidade.getText().replaceAll(",", "."));
             dir = verificaDouble(textDirecao.getText().replaceAll(",", "."));

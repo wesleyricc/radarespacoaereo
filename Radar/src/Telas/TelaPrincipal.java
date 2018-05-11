@@ -28,7 +28,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     DefaultTableModel modelo = new DefaultTableModel();
     EntradaDados enterdate;
     Ajuda ajuda = new Ajuda();
-    Thread t = new Thread(new ThreadG(this));
+    
     Graphics graph;
 
     public TelaPrincipal() {
@@ -42,12 +42,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     }
 
-    public void iniciaThread() {
-        try {
-            t.start();
-        } catch (Exception e) {
-        }
-    }
+    
 
     public Queue<Get_Set_Pontos> getFilaAcao() {
         return filaAcao;
@@ -100,7 +95,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
         barraMenu = new javax.swing.JMenuBar();
         menuEntradaDados = new javax.swing.JMenu();
         menuTransformacao = new javax.swing.JMenu();
+        menuRotacionar = new javax.swing.JMenuItem();
+        menuTranslandar = new javax.swing.JMenuItem();
+        menuEscalonar = new javax.swing.JMenuItem();
         menuRastreamento = new javax.swing.JMenu();
+        menuProxAero = new javax.swing.JMenuItem();
+        menuProxAviao = new javax.swing.JMenuItem();
+        menuColisao = new javax.swing.JMenuItem();
         menuAjuda = new javax.swing.JMenu();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -265,9 +266,29 @@ public class TelaPrincipal extends javax.swing.JFrame {
         barraMenu.add(menuEntradaDados);
 
         menuTransformacao.setText("Transformação");
+
+        menuRotacionar.setText("Rotacionar");
+        menuTransformacao.add(menuRotacionar);
+
+        menuTranslandar.setText("Translandar");
+        menuTransformacao.add(menuTranslandar);
+
+        menuEscalonar.setText("Escalonar");
+        menuTransformacao.add(menuEscalonar);
+
         barraMenu.add(menuTransformacao);
 
         menuRastreamento.setText("Rastreamento");
+
+        menuProxAero.setText("Aviões próximos do Aeroporto");
+        menuRastreamento.add(menuProxAero);
+
+        menuProxAviao.setText("Aviões próximos entre sí");
+        menuRastreamento.add(menuProxAviao);
+
+        menuColisao.setText("Rota de Colisão");
+        menuRastreamento.add(menuColisao);
+
         barraMenu.add(menuRastreamento);
 
         menuAjuda.setText("Ajuda");
@@ -356,9 +377,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
     private javax.swing.JMenu menuAjuda;
+    private javax.swing.JMenuItem menuColisao;
     private javax.swing.JMenu menuEntradaDados;
+    private javax.swing.JMenuItem menuEscalonar;
+    private javax.swing.JMenuItem menuProxAero;
+    private javax.swing.JMenuItem menuProxAviao;
     private javax.swing.JMenu menuRastreamento;
+    private javax.swing.JMenuItem menuRotacionar;
     private javax.swing.JMenu menuTransformacao;
+    private javax.swing.JMenuItem menuTranslandar;
     private javax.swing.JPanel painelDatagrid;
     private javax.swing.JDesktopPane painelDesktop;
     private javax.swing.JPanel painelRadar;

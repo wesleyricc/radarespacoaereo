@@ -44,11 +44,45 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Transforma&#xe7;&#xe3;o"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="menuRotacionar">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Rotacionar"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuTranslandar">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Translandar"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuEscalonar">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Escalonar"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="menuRastreamento">
           <Properties>
             <Property name="text" type="java.lang.String" value="Rastreamento"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="menuProxAero">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Avi&#xf5;es pr&#xf3;ximos do Aeroporto"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuProxAviao">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Avi&#xf5;es pr&#xf3;ximos entre s&#xed;"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuColisao">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Rota de Colis&#xe3;o"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="menuAjuda">
           <Properties>
