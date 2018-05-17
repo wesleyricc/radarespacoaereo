@@ -46,7 +46,7 @@ public class Ajuda extends javax.swing.JInternalFrame {
         setTitle("Ajuda");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel1.setText("VRAU - Sistema de Controle Aéreo");
+        jLabel1.setText("SAFE - Sistema de Controle Aéreo");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("VRAU - Sistema de Controle Aéreo");
@@ -69,7 +69,7 @@ public class Ajuda extends javax.swing.JInternalFrame {
         );
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel3.setText("Wesley Ricado");
+        jLabel3.setText("Wesley Ricardo");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Pedro Bonetti");

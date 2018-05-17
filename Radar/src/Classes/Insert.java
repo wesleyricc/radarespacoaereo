@@ -19,7 +19,7 @@ import javax.imageio.ImageIO;
  *
  * @author comp9
  */
-public class ThreadG {
+public class Insert {
 
     TelaPrincipal frame;
     Graphics grafico;
@@ -28,7 +28,7 @@ public class ThreadG {
     int cont = -1;
     
 
-    public ThreadG(TelaPrincipal telaprincipal) {
+    public Insert(TelaPrincipal telaprincipal) {
         this.frame = telaprincipal;
         loadImg();
     }
@@ -51,7 +51,7 @@ public class ThreadG {
         grafico.drawLine(200, 0, 200, 400);
         Double[] coord = new Double[2];
 
-        while (frame.isAlive()) {
+        if (frame.isAlive()) {
             if (frame.isAcaoExclusao()) {
 
                 while (!frame.getFilaAcao().isEmpty()) {
@@ -79,7 +79,7 @@ public class ThreadG {
             try {
                 java.lang.Thread.sleep(50);
             } catch (InterruptedException ex) {
-                Logger.getLogger(ThreadG.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Insert.class.getName()).log(Level.SEVERE, null, ex);
             }
 
         }
