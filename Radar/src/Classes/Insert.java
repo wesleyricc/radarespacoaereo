@@ -26,7 +26,6 @@ public class Insert {
     Get_Set_Pontos ponto;
     BufferedImage img = null;
     int cont = -1;
-    
 
     public Insert(TelaPrincipal telaprincipal) {
         this.frame = telaprincipal;
@@ -59,7 +58,8 @@ public class Insert {
                     ponto = frame.getFilaAcao().poll();
 
                     coord = normalizaPontos(ponto.getX(), ponto.getY());
-                    grafico.clearRect(coord[0].intValue() - 10, coord[1].intValue() - 10, 20, 20);
+
+                    grafico.clearRect(coord[0].intValue() - 13, coord[1].intValue() - 13, 23, 23);
 
                 }
 
@@ -85,20 +85,19 @@ public class Insert {
         }
 
     }
-    
-    public void inserePonto (String nome, Double x, Double y, double dir){
-        
-        double direcaoObjeto = Math.toRadians(360-dir);
+
+    public void inserePonto(String nome, Double x, Double y, double dir) {
+
+        double direcaoObjeto = Math.toRadians(360 - dir);
         double posicaoX = img.getWidth() / 2;
         double posicaoY = img.getHeight() / 2;
-        
+
         AffineTransform tx = AffineTransform.getRotateInstance(direcaoObjeto, posicaoX, posicaoY);
         AffineTransformOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_BILINEAR);
-        
+
         grafico.drawImage(op.filter(img, null), x.intValue() - 15, y.intValue() - 15, null);
-        grafico.drawString(nome, x.intValue() - 15, y.intValue() - 15);
+        //grafico.drawString(nome, x.intValue() - 15, y.intValue() - 15);
     }
-    
 
     public Double[] normalizaPontos(double x, double y) {
         Double[] coordenadas = new Double[2];

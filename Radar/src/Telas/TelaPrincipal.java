@@ -37,9 +37,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private final Insert t = new Insert(this);
     Graphics graph;
 
-   
-    
-    
     public TelaPrincipal() {
 
         initComponents();
@@ -50,8 +47,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         enterdate = new EntradaDados(modelo, this);
 
     }
-
-    
 
     public Queue<Get_Set_Pontos> getFilaAcao() {
         return filaAcao;
@@ -80,7 +75,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     public boolean isAlive() {
         return alive;
     }
-    
+
     public void setarCampos() {
 
         textAngulo.setText("");
@@ -112,23 +107,39 @@ public class TelaPrincipal extends javax.swing.JFrame {
         abasPainel = new javax.swing.JTabbedPane();
         jScrollPane3 = new javax.swing.JScrollPane();
         textoRelatorio = new javax.swing.JTextArea();
-        jInternalFrame1 = new javax.swing.JInternalFrame();
-        jPanel8 = new javax.swing.JPanel();
-        botaoCartesiana2 = new javax.swing.JRadioButton();
-        labelX = new javax.swing.JLabel();
-        textX = new javax.swing.JTextField();
-        labelY = new javax.swing.JLabel();
-        textY = new javax.swing.JTextField();
-        labelRaio = new javax.swing.JLabel();
-        botaoPolar = new javax.swing.JRadioButton();
-        textRaio = new javax.swing.JTextField();
-        labelAngulo = new javax.swing.JLabel();
-        textAngulo = new javax.swing.JTextField();
+        jPanel3 = new javax.swing.JPanel();
         botaoInserir = new javax.swing.JButton();
-        labelVelocidade = new javax.swing.JLabel();
+        textAngulo = new javax.swing.JTextField();
+        textRaio = new javax.swing.JTextField();
+        botaoPolar = new javax.swing.JRadioButton();
+        textX = new javax.swing.JTextField();
+        textY = new javax.swing.JTextField();
+        labelY = new javax.swing.JLabel();
+        labelX = new javax.swing.JLabel();
+        botaoCartesiana = new javax.swing.JRadioButton();
+        labelRaio = new javax.swing.JLabel();
+        labelAngulo = new javax.swing.JLabel();
         labelDirecao = new javax.swing.JLabel();
+        labelVelocidade = new javax.swing.JLabel();
         textVelocidade = new javax.swing.JTextField();
         textDirecao = new javax.swing.JTextField();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        textXescalar = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        textYescalar = new javax.swing.JTextField();
+        botaoEscalar = new javax.swing.JButton();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        textAngulorotacionar = new javax.swing.JTextField();
+        botaoRotacionar = new javax.swing.JButton();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        textXtransladar = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        textYtransladar = new javax.swing.JTextField();
+        botaoTransladar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         barraMenu = new javax.swing.JMenuBar();
@@ -229,75 +240,268 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         abasPainel.addTab("Relatório", jScrollPane3);
 
-        jInternalFrame1.setVisible(true);
-
-        buttonGroup1.add(botaoCartesiana2);
-        botaoCartesiana2.setText("Cartesiana");
-        botaoCartesiana2.addActionListener(new java.awt.event.ActionListener() {
+        botaoInserir.setText("Inserir");
+        botaoInserir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoCartesiana2ActionPerformed(evt);
+                botaoInserirbotaoInserirActionPerformed(evt);
             }
         });
 
-        labelX.setText("X:");
-
-        textX.addFocusListener(new java.awt.event.FocusAdapter() {
+        textAngulo.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                textXFocusLost(evt);
-            }
-        });
-        textX.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                textXMouseExited(evt);
-            }
-        });
-
-        labelY.setText("Y:");
-
-        textY.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                textYFocusLost(evt);
-            }
-        });
-
-        labelRaio.setText("Raio:");
-
-        buttonGroup1.add(botaoPolar);
-        botaoPolar.setText("Polar");
-        botaoPolar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoPolarActionPerformed(evt);
+                textAngulotextAnguloFocusLost(evt);
             }
         });
 
         textRaio.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                textRaioFocusLost(evt);
+                textRaiotextRaioFocusLost(evt);
             }
         });
+
+        buttonGroup1.add(botaoPolar);
+        botaoPolar.setText("Polar");
+        botaoPolar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoPolarbotaoPolarActionPerformed(evt);
+            }
+        });
+
+        textX.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                textXtextXFocusLost(evt);
+            }
+        });
+        textX.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                textXtextXMouseExited(evt);
+            }
+        });
+        textX.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textXActionPerformed(evt);
+            }
+        });
+
+        textY.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                textYtextYFocusLost(evt);
+            }
+        });
+
+        labelY.setText("Y:");
+
+        labelX.setText("X:");
+
+        buttonGroup1.add(botaoCartesiana);
+        botaoCartesiana.setText("Cartesiana");
+        botaoCartesiana.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoCartesianabotaoCartesiana2ActionPerformed(evt);
+            }
+        });
+
+        labelRaio.setText("Raio:");
 
         labelAngulo.setText("Ângulo:");
 
-        textAngulo.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                textAnguloFocusLost(evt);
-            }
-        });
-
-        botaoInserir.setText("Inserir");
-        botaoInserir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoInserirActionPerformed(evt);
-            }
-        });
+        labelDirecao.setText("Direção:");
 
         labelVelocidade.setText("Velocidade:");
 
-        labelDirecao.setText("Direção:");
-
         textDirecao.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                textDirecaoFocusLost(evt);
+                textDirecaotextDirecaoFocusLost(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(labelY)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(textY))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(labelX)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(textX, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(21, 21, 21)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(labelAngulo)
+                            .addComponent(labelRaio)))
+                    .addComponent(botaoCartesiana))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(botaoPolar)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(textAngulo, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
+                            .addComponent(textRaio))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelVelocidade)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(labelDirecao, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(textDirecao, javax.swing.GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE)
+                            .addComponent(textVelocidade))))
+                .addContainerGap())
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(142, 142, 142)
+                .addComponent(botaoInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(172, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botaoPolar)
+                    .addComponent(botaoCartesiana))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelX)
+                            .addComponent(textX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelRaio)
+                            .addComponent(textRaio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelY)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(textY, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(labelAngulo)
+                                .addComponent(textAngulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelVelocidade)
+                            .addComponent(textVelocidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(textDirecao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelDirecao))))
+                .addGap(29, 29, 29)
+                .addComponent(botaoInserir)
+                .addContainerGap(80, Short.MAX_VALUE))
+        );
+
+        abasPainel.addTab("Entrada de Dados", jPanel3);
+
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Escalar"));
+
+        jLabel6.setText("X:");
+
+        jLabel7.setText("Y:");
+
+        textYescalar.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                textYescalarFocusLost(evt);
+            }
+        });
+
+        botaoEscalar.setText("OK");
+        botaoEscalar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoEscalarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(textXescalar, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(textYescalar, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botaoEscalar))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7)
+                    .addComponent(textYescalar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel6)
+                        .addComponent(textXescalar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(14, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(botaoEscalar))
+        );
+
+        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder("Rotacionar"));
+
+        jLabel8.setText("Ângulo:");
+
+        botaoRotacionar.setText("OK");
+        botaoRotacionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoRotacionarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(textAngulorotacionar, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botaoRotacionar))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(textAngulorotacionar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(16, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(botaoRotacionar))
+        );
+
+        jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder("Transladar"));
+
+        jLabel9.setText("X:");
+
+        jLabel10.setText("Y:");
+
+        textYtransladar.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                textYtransladarFocusLost(evt);
+            }
+        });
+
+        botaoTransladar.setText("OK");
+        botaoTransladar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoTransladarActionPerformed(evt);
             }
         });
 
@@ -307,99 +511,57 @@ public class TelaPrincipal extends javax.swing.JFrame {
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addComponent(labelY)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(textY))
-                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addComponent(labelX)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(textX, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(21, 21, 21)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(labelAngulo)
-                            .addComponent(labelRaio)))
-                    .addComponent(botaoCartesiana2))
+                .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(botaoPolar)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(textAngulo, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
-                            .addComponent(textRaio))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelVelocidade)
-                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(labelDirecao, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(textDirecao, javax.swing.GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE)
-                            .addComponent(textVelocidade))))
-                .addContainerGap())
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(142, 142, 142)
-                .addComponent(botaoInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(136, Short.MAX_VALUE))
+                .addComponent(textXtransladar, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(textYtransladar, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botaoTransladar))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botaoPolar)
-                    .addComponent(botaoCartesiana2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labelX)
-                            .addComponent(textX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelRaio)
-                            .addComponent(textRaio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelY)
-                            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(textY, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(labelAngulo)
-                                .addComponent(textAngulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labelVelocidade)
-                            .addComponent(textVelocidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(textDirecao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelDirecao))))
-                .addGap(29, 29, 29)
-                .addComponent(botaoInserir)
-                .addContainerGap(47, Short.MAX_VALUE))
+                    .addComponent(jLabel10)
+                    .addComponent(textYtransladar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel9)
+                        .addComponent(textXtransladar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(14, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(botaoTransladar))
         );
 
-        javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
-        jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
-        jInternalFrame1Layout.setHorizontalGroup(
-            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame1Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
-        jInternalFrame1Layout.setVerticalGroup(
-            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame1Layout.createSequentialGroup()
-                .addGap(0, 5, Short.MAX_VALUE)
-                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(16, 16, 16))
         );
 
-        abasPainel.addTab("Entrada de Dados", jInternalFrame1);
+        abasPainel.addTab("Transformar", jPanel2);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/travel.png"))); // NOI18N
         jLabel1.setText(".");
@@ -442,7 +604,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                                 .addGap(17, 17, 17)
                                 .addComponent(jLabel2)))
                         .addGap(38, 38, 38)
-                        .addComponent(abasPainel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                        .addComponent(abasPainel)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(painelDatagrid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -498,15 +660,44 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_menuAjudaMouseClicked
 
-    private void botaoCartesiana2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCartesiana2ActionPerformed
+    private void textDirecaotextDirecaoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textDirecaotextDirecaoFocusLost
         // TODO add your handling code here:
+    }//GEN-LAST:event_textDirecaotextDirecaoFocusLost
+
+    private void botaoCartesianabotaoCartesiana2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCartesianabotaoCartesiana2ActionPerformed
+
         textX.setEnabled(true);
         textY.setEnabled(true);
         textRaio.setEnabled(false);
         textAngulo.setEnabled(false);
-    }//GEN-LAST:event_botaoCartesiana2ActionPerformed
 
-    private void textXFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textXFocusLost
+    }//GEN-LAST:event_botaoCartesianabotaoCartesiana2ActionPerformed
+
+    private void textYtextYFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textYtextYFocusLost
+
+        try {
+            if (textX.getText().isEmpty()) {
+                textX.setText("0");
+            }
+            x = verificaDouble(textX.getText().replaceAll(",", "."));
+            y = verificaDouble(textY.getText().replaceAll(",", "."));
+
+            result = cal.transformaPolar(x, y);
+            textRaio.setText(String.valueOf(new DecimalFormat("#.00").format(result[0])));
+            textAngulo.setText(String.valueOf(new DecimalFormat("#.00").format(result[1])));
+            r = result[0];
+            ang = result[1];
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Aviso", JOptionPane.ERROR_MESSAGE);
+        }
+
+    }//GEN-LAST:event_textYtextYFocusLost
+
+    private void textXtextXMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textXtextXMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textXtextXMouseExited
+
+    private void textXtextXFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textXtextXFocusLost
 
         try {
             x = verificaDouble(textX.getText().replaceAll(",", "."));
@@ -524,40 +715,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Aviso", JOptionPane.ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_textXFocusLost
 
-    private void textXMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textXMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textXMouseExited
+    }//GEN-LAST:event_textXtextXFocusLost
 
-    private void textYFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textYFocusLost
-        // TODO add your handling code here:
-        try {
-            if (textX.getText().isEmpty()) {
-                textX.setText("0");
-            }
-            x = verificaDouble(textX.getText().replaceAll(",", "."));
-            y = verificaDouble(textY.getText().replaceAll(",", "."));
+    private void botaoPolarbotaoPolarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPolarbotaoPolarActionPerformed
 
-            result = cal.transformaPolar(x, y);
-            textRaio.setText(String.valueOf(new DecimalFormat("#.00").format(result[0])));
-            textAngulo.setText(String.valueOf(new DecimalFormat("#.00").format(result[1])));
-            r = result[0];
-            ang = result[1];
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage(), "Aviso", JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_textYFocusLost
-
-    private void botaoPolarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPolarActionPerformed
-        // TODO add your handling code here:
         textX.setEnabled(false);
         textY.setEnabled(false);
         textRaio.setEnabled(true);
         textAngulo.setEnabled(true);
-    }//GEN-LAST:event_botaoPolarActionPerformed
 
-    private void textRaioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textRaioFocusLost
+    }//GEN-LAST:event_botaoPolarbotaoPolarActionPerformed
+
+    private void textRaiotextRaioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textRaiotextRaioFocusLost
 
         try {
             r = verificaDouble(textRaio.getText().replaceAll(",", "."));
@@ -576,10 +746,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Aviso", JOptionPane.ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_textRaioFocusLost
 
-    private void textAnguloFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textAnguloFocusLost
-        // TODO add your handling code here:
+    }//GEN-LAST:event_textRaiotextRaioFocusLost
+
+    private void textAngulotextAnguloFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textAngulotextAnguloFocusLost
+
         try {
 
             if (textRaio.getText().isEmpty()) {
@@ -598,10 +769,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Aviso", JOptionPane.ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_textAnguloFocusLost
 
-    private void botaoInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoInserirActionPerformed
-        // TODO add your handling code here:
+    }//GEN-LAST:event_textAngulotextAnguloFocusLost
+
+    private void botaoInserirbotaoInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoInserirbotaoInserirActionPerformed
 
         try {
             vel = verificaDouble(textVelocidade.getText().replaceAll(",", "."));
@@ -616,13 +787,84 @@ public class TelaPrincipal extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Aviso", JOptionPane.ERROR_MESSAGE);
         }
-        
-        setarCampos();
-    }//GEN-LAST:event_botaoInserirActionPerformed
 
-    private void textDirecaoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textDirecaoFocusLost
+        setarCampos();
+
+    }//GEN-LAST:event_botaoInserirbotaoInserirActionPerformed
+
+    private void textXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textXActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textDirecaoFocusLost
+    }//GEN-LAST:event_textXActionPerformed
+
+    private void textYescalarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textYescalarFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textYescalarFocusLost
+
+    private void botaoEscalarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEscalarActionPerformed
+        // TODO add your handling code here:
+        try {
+            buscarSelecao();
+            double Sx = verificaDouble(textXescalar.getText().replaceAll(",", "."));
+            double Sy = verificaDouble(textYescalar.getText().replaceAll(",", "."));
+
+            for (Get_Set_Pontos p : filaCalculo) {
+                result = cal.calculaEscala(p.getX(), p.getY(), Sx, Sy);
+                insereValorFormatado(result[0], p.getLinha(), 2);
+                insereValorFormatado(result[1], p.getLinha(), 3);
+                result = cal.transformaPolar(result[0], result[1]);
+                insereValorFormatado(result[0], p.getLinha(), 4);
+                insereValorFormatado(result[1], p.getLinha(), 5);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Aviso", JOptionPane.ERROR_MESSAGE);
+        }
+
+        t.run();
+    }//GEN-LAST:event_botaoEscalarActionPerformed
+
+    private void botaoRotacionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoRotacionarActionPerformed
+        // TODO add your handling code here:
+        try {
+            buscarSelecao();
+            double ang = verificaDouble(textAngulorotacionar.getText().replaceAll(",", "."));
+            for (Get_Set_Pontos p : filaCalculo) {
+                result = cal.calculaRotacao(p.getX(), p.getY(), ang);
+                insereValorFormatado(result[0], p.getLinha(), 2);
+                insereValorFormatado(result[1], p.getLinha(), 3);
+                result = cal.transformaPolar(result[0], result[1]);
+                insereValorFormatado(result[0], p.getLinha(), 4);
+                insereValorFormatado(result[1], p.getLinha(), 5);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Aviso", JOptionPane.ERROR_MESSAGE);
+        }
+
+        t.run();
+    }//GEN-LAST:event_botaoRotacionarActionPerformed
+
+    private void textYtransladarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textYtransladarFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textYtransladarFocusLost
+
+    private void botaoTransladarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoTransladarActionPerformed
+        // TODO add your handling code here:
+        try {
+            buscarSelecao();
+            double Tx = verificaDouble(textXtransladar.getText().replaceAll(",", "."));
+            double Ty = verificaDouble(textYtransladar.getText().replaceAll(",", "."));
+
+            for (Get_Set_Pontos p : filaCalculo) {
+                result = cal.calculaTranslacao(p.getX(), p.getY(), Tx, Ty);
+                insereValorFormatado(result[0], p.getLinha(), 2);
+                insereValorFormatado(result[1], p.getLinha(), 3);
+                result = cal.transformaPolar(result[0], result[1]);
+                insereValorFormatado(result[0], p.getLinha(), 4);
+                insereValorFormatado(result[1], p.getLinha(), 5);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Aviso", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_botaoTransladarActionPerformed
 
     public Double verificaDouble(String a) throws Exception {
         try {
@@ -632,7 +874,34 @@ public class TelaPrincipal extends javax.swing.JFrame {
         }
 
     }
-    
+
+    public void buscarSelecao() {
+        Get_Set_Pontos ponto;
+        for (int i = 0; i < modelo.getRowCount(); i++) {
+            if ((Boolean) modelo.getValueAt(i, 0)) {
+                ponto = new Get_Set_Pontos();
+                ponto.setLinha(i);
+                ponto.setX(Double.parseDouble(modelo.getValueAt(i, 2).toString().replace(",", ".")));
+                ponto.setY(Double.parseDouble(modelo.getValueAt(i, 3).toString().replace(",", ".")));
+
+                filaAcao.add(ponto);
+                filaCalculo.add(ponto);
+
+            }
+        }
+        if (!filaAcao.isEmpty()) {
+            acaoExclusao = true;
+        } else {
+            JOptionPane.showMessageDialog(null, "Nenhuma linha selecionada.", "Aviso", JOptionPane.WARNING_MESSAGE);
+        }
+
+    }
+
+    public void insereValorFormatado(double valor, int row, int column) {
+        String vForm = String.valueOf(new DecimalFormat("#.00").format(valor));
+        modelo.setValueAt(vForm, row, column);
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -672,16 +941,23 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JTabbedPane abasPainel;
     private javax.swing.JMenuBar barraMenu;
     private javax.swing.JRadioButton botaoCartesiana;
-    private javax.swing.JRadioButton botaoCartesiana1;
-    private javax.swing.JRadioButton botaoCartesiana2;
+    private javax.swing.JButton botaoEscalar;
     private javax.swing.JButton botaoInserir;
     private javax.swing.JRadioButton botaoPolar;
+    private javax.swing.JButton botaoRotacionar;
+    private javax.swing.JButton botaoTransladar;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
@@ -700,11 +976,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel painelRadar;
     private javax.swing.JTable tabelaDatagrid;
     private javax.swing.JTextField textAngulo;
+    private javax.swing.JTextField textAngulorotacionar;
     private javax.swing.JTextField textDirecao;
     private javax.swing.JTextField textRaio;
     private javax.swing.JTextField textVelocidade;
     private javax.swing.JTextField textX;
+    private javax.swing.JTextField textXescalar;
+    private javax.swing.JTextField textXtransladar;
     private javax.swing.JTextField textY;
+    private javax.swing.JTextField textYescalar;
+    private javax.swing.JTextField textYtransladar;
     private javax.swing.JTextArea textoRelatorio;
     // End of variables declaration//GEN-END:variables
 }
