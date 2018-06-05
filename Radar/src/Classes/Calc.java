@@ -33,10 +33,16 @@ public class Calc {
         return result;
     }
 
-    public double[] calculaRotacao(double x, double y, double ang) {
+    public double[] calculaRotacao(double x, double y, double ang, double xR, double yR) {
+
+        x -= xR;
+        y -= yR;
 
         result[0] = x * Math.cos(Math.toRadians(ang)) - y * Math.sin(Math.toRadians(ang)); //x' = x * cos(B) - y * sen(B)
         result[1] = y * Math.cos(Math.toRadians(ang)) + x * Math.sin(Math.toRadians(ang)); //y' = y * cos(B) + x * sen(B)
+        
+        result[0] += xR;
+        result[1] += yR;
 
         return result;
     }

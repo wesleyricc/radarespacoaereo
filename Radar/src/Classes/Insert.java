@@ -51,6 +51,9 @@ public class Insert {
         Double[] coord = new Double[2];
 
         if (frame.isAlive()) {
+
+            grafico.clearRect(0, 0, 400, 400);
+
             if (frame.isAcaoExclusao()) {
 
                 while (!frame.getFilaAcao().isEmpty()) {
@@ -58,8 +61,6 @@ public class Insert {
                     ponto = frame.getFilaAcao().poll();
 
                     coord = normalizaPontos(ponto.getX(), ponto.getY());
-
-                    grafico.clearRect(coord[0].intValue() - 13, coord[1].intValue() - 13, 23, 23);
 
                 }
 
