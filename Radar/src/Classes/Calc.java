@@ -5,7 +5,6 @@ package Classes;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author comp9
@@ -40,7 +39,7 @@ public class Calc {
 
         result[0] = x * Math.cos(Math.toRadians(ang)) - y * Math.sin(Math.toRadians(ang)); //x' = x * cos(B) - y * sen(B)
         result[1] = y * Math.cos(Math.toRadians(ang)) + x * Math.sin(Math.toRadians(ang)); //y' = y * cos(B) + x * sen(B)
-        
+
         result[0] += xR;
         result[1] += yR;
 
@@ -85,6 +84,23 @@ public class Calc {
 
         return (distancia / vel) * 3600;
 
+    }
+
+    public double[] calculaInterseccao(double x1, double y1, double ang1, double x2, double y2, double ang2) {
+        double x, y, m, m1;
+
+        m = Math.tan(Math.toRadians(ang1));
+        m1 = Math.tan(Math.toRadians(ang2));
+
+        if (m == m1) {
+            return null;
+        } else {
+            x = ((m * x1 + y1 - y2) + (m1 * x2)) / (m1 - m);
+            y = ((m * x) - (m * x1)) + y1;
+            result[0] = x;
+            result[1] = y;
+            return result;
+        }
     }
 
 }
