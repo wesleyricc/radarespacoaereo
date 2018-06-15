@@ -946,7 +946,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_textAngulorotacionarFocusLost
 
     private void botãoProxEntreSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoProxEntreSiActionPerformed
-       
+
         buscarTodos();
         String str = "", str2 = "";
         Get_Set_Pontos p1, p2;
@@ -964,18 +964,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
             str += str2;
         }
 
-        textoRelatorio.setText("Distância entre os aviões:\n" +str);
-        
-         abasPainel.setSelectedIndex(0);
-        
-        
-        
+        textoRelatorio.setText("Distância entre os aviões:\n" + str);
+
+        abasPainel.setSelectedIndex(0);
+
+
     }//GEN-LAST:event_botãoProxEntreSiActionPerformed
 
     private void botãoRotaColisaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoRotaColisaoActionPerformed
-        
- 
-        
+
         double par = Double.parseDouble(JOptionPane.showInputDialog(null, "Informe o tempo mínimo: ", "Informe", JOptionPane.QUESTION_MESSAGE).replaceAll(",", "."));
         
         buscarTodos();
@@ -988,7 +985,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
             str2 = p1.getNome() + ":\n";
             for (int j = i + 1; j < arrayPontos.size(); j++) {
                 p2 = arrayPontos.get(j);
-                result = cal.calculaInterseccao(p1.getX(), p1.getY(), p1.getAng(), p2.getX(), p2.getY(), p2.getAng());
+                
+                result = cal.calculaInterseccao(p1.getX(), p1.getY(), p1.getDir(), p2.getX(), p2.getY(), p2.getDir());
+                
+                
                 if(result == null){
                     str2 += p2.getNome() + " - Não se cruzam.\n";
                 }else{
@@ -1012,15 +1012,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         textoRelatorio.setText("" + str);
         
         //JOptionPane.showMessageDialog(null, str, "Relatório", JOptionPane.INFORMATION_MESSAGE);
-        
+         
     }//GEN-LAST:event_botãoRotaColisaoActionPerformed
 
     private void botãoProxAeroportoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoProxAeroportoActionPerformed
 
         double valorDist = Double.parseDouble(JOptionPane.showInputDialog(null, "Informe a distância em Km", "Informe", JOptionPane.QUESTION_MESSAGE).replaceAll(",", "."));
         buscarTodos();
-        
-        
+
         String str = "";
         for (Get_Set_Pontos p : arrayPontos) {
             if (p.getR() < valorDist) {
@@ -1034,10 +1033,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
             textoRelatorio.setText("Os aviões abaixo estão próximos do aeroporto:\n" + str);
         }
-        
+
         abasPainel.setSelectedIndex(0);
-        
-      
+
 
     }//GEN-LAST:event_botãoProxAeroportoActionPerformed
 

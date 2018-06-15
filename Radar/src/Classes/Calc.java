@@ -86,21 +86,47 @@ public class Calc {
 
     }
 
-    public double[] calculaInterseccao(double x1, double y1, double ang1, double x2, double y2, double ang2) {
-        double x, y, m, m1;
+    public double[] calculaInterseccao(double x1, double y1, double dir1, double x2, double y2, double dir2) {
+        double angular1, angular2;
+        double linear1, linear2;
+        double X, Y;
 
-        m = Math.tan(Math.toRadians(ang1));
-        m1 = Math.tan(Math.toRadians(ang2));
+        // y = mx + b
+        // b = mx - y
+        // m = angular
+        // b = linear
+        angular1 = calculaCoeficientAngular(dir1);
+        angular2 = calculaCoeficientAngular(dir2);
 
-        if (m == m1) {
-            return null;
-        } else {
-            x = ((m * x1 + y1 - y2) + (m1 * x2)) / (m1 - m);
-            y = ((m * x) - (m * x1)) + y1;
-            result[0] = x;
-            result[1] = y;
-            return result;
-        }
+        linear1 = calculaCoeficientLinear(angular1, x1, y1);
+        linear2 = calculaCoeficientLinear(angular2, x2, y2);
+
+        // chegou na formula da reta
+        // y = angular * x + linear ou y = mx + b
+        // igualar as duas equações
+        // angular1 * x1 + linear1 = angular2 * x2 + linear2
+        // passar pra cada lado variváveis iguais
+        // angular1 * x1 - (angular2 * x2) =  linear2 - linear1
+        // (x1 - x2) = (linear2 - (linear1))
+        // X = (linear2 - (linear1))/resultadoDoubleDoX
+        X = (linear2 - (linear1)) / (x1 - x2);
+
+        //encontrar o X
+        double resultadoX = 1;
+
+        // encontrar o Y
+        double y = angular1 * resultadoX + linear1;
+
+        // distancia do ponto 1 até a colisão e depois do ponto 2
+        // calcula velocidade
+        return result;
     }
 
+    private double calculaCoeficientAngular(double angulo) {
+        return Math.tan(angulo);
+    }
+
+    private double calculaCoeficientLinear(double coeficienteAngular, double x, double y) {
+        return coeficienteAngular * x - y;
+    }
 }
