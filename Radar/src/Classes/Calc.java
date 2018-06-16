@@ -109,24 +109,25 @@ public class Calc {
         // angular1 * x1 - (angular2 * x2) =  linear2 - linear1
         // (x1 - x2) = (linear2 - (linear1))
         // X = (linear2 - (linear1))/resultadoDoubleDoX
-        X = (linear2 - (linear1)) / (x1 - x2);
-
         //encontrar o X
-        double resultadoX = 1;
+        X = (linear2 - (linear1)) / (angular1 * x1 - (angular2 * x2));
 
         // encontrar o Y
-        double y = angular1 * resultadoX + linear1;
+        Y = angular1 * X + linear1;
 
         // distancia do ponto 1 até a colisão e depois do ponto 2
         // calcula velocidade
+        result[0] = X;
+        result[1] = Y;
+
         return result;
     }
 
     private double calculaCoeficientAngular(double angulo) {
-        return Math.tan(angulo);
+        return Math.tan(Math.toRadians(angulo));
     }
 
     private double calculaCoeficientLinear(double coeficienteAngular, double x, double y) {
-        return coeficienteAngular * x - y;
+        return y - coeficienteAngular * x;
     }
 }

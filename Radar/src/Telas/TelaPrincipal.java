@@ -1011,7 +1011,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         
         textoRelatorio.setText("" + str);
         
-        //JOptionPane.showMessageDialog(null, str, "Relatório", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, str, "Relatório", JOptionPane.INFORMATION_MESSAGE);
          
     }//GEN-LAST:event_botãoRotaColisaoActionPerformed
 
