@@ -1,5 +1,7 @@
 package Classes;
 
+import java.text.DecimalFormat;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -90,7 +92,7 @@ public class Calc {
         double angular1, angular2;
         double linear1, linear2;
         double X, Y;
-
+        
         // y = mx + b
         // b = mx - y
         // m = angular
@@ -110,10 +112,10 @@ public class Calc {
         // (x1 - x2) = (linear2 - (linear1))
         // X = (linear2 - (linear1))/resultadoDoubleDoX
         //encontrar o X
-        X = (linear2 - (linear1)) / (angular1 * x1 - (angular2 * x2));
+        X = parseFloat((linear2 - (linear1))) / parseFloat((angular1 - angular2 ));
 
         // encontrar o Y
-        Y = angular1 * X + linear1;
+        Y = parseFloat(angular1 * X + linear1);
 
         // distancia do ponto 1 até a colisão e depois do ponto 2
         // calcula velocidade
@@ -124,10 +126,14 @@ public class Calc {
     }
 
     private double calculaCoeficientAngular(double angulo) {
-        return Math.tan(Math.toRadians(angulo));
+        return parseFloat(Math.tan(Math.toRadians(angulo)));
     }
 
     private double calculaCoeficientLinear(double coeficienteAngular, double x, double y) {
-        return y - coeficienteAngular * x;
+        return parseFloat(y - coeficienteAngular * x);
+    }
+    
+    private Double parseFloat(double value){
+        return Double.valueOf(new DecimalFormat("0.##").format(value));
     }
 }
