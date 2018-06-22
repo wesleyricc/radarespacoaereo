@@ -97,7 +97,7 @@ public class Insert {
         AffineTransformOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_BILINEAR);
 
         grafico.drawImage(op.filter(img, null), x.intValue() - 15, y.intValue() - 15, null);
-        //grafico.drawString(nome, x.intValue() - 15, y.intValue() - 15);
+        grafico.drawString(nome, x.intValue() - 15, y.intValue() - 15);
     }
 
     public Double[] normalizaPontos(double x, double y) {
