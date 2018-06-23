@@ -492,6 +492,7 @@
                     <Component class="javax.swing.JTextField" name="textY">
                       <Events>
                         <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="textYtextYFocusLost"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textYActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="labelY">

@@ -305,6 +305,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 textYtextYFocusLost(evt);
             }
         });
+        textY.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textYActionPerformed(evt);
+            }
+        });
 
         labelY.setText("Y:");
 
@@ -1088,6 +1093,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_botaoExcluirActionPerformed
+
+    private void textYActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textYActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textYActionPerformed
 
     public Double verificaDouble(String a) throws Exception {
         try {
