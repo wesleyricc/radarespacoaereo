@@ -43,7 +43,7 @@ public class Insert {
 
     public void run() {
 
-        System.out.println("Thread iniciada!");
+        
 
         grafico = frame.getPainelRadar().getGraphics();
         grafico.drawLine(0, 200, 400, 200);

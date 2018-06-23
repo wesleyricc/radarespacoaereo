@@ -32,12 +32,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
     DefaultTableModel modelo = new DefaultTableModel();
     EntradaDados enterdate;
     Calc cal = new Calc();
-    Ajuda ajuda = new Ajuda();
+    Sobre sobre = new Sobre();
     double x, y, r, ang, vel, dir;
     double[] result = new double[2];
     private final Insert t = new Insert(this);
     Graphics graph;
     ArrayList<Get_Set_Pontos> arrayPontos;
+    DecimalFormat decimal = new DecimalFormat("0.00");
 
     public TelaPrincipal() {
 
@@ -101,6 +102,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         buttonGroup1 = new javax.swing.ButtonGroup();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         painelDesktop = new javax.swing.JDesktopPane();
         jPanel1 = new javax.swing.JPanel();
         painelRadar = new javax.swing.JPanel();
@@ -151,8 +154,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         botãoProxEntreSi = new javax.swing.JButton();
         botãoRotaColisao = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        botaoExcluir = new javax.swing.JButton();
         barraMenu = new javax.swing.JMenuBar();
-        menuAjuda = new javax.swing.JMenu();
+        menuSobre = new javax.swing.JMenu();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -178,6 +182,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(jTable1);
+
+        jMenuItem1.setText("jMenuItem1");
+
+        jMenuItem2.setText("jMenuItem2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -476,9 +484,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        textXrotacionar.setText("0");
+        textXrotacionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textXrotacionarActionPerformed(evt);
+            }
+        });
+
         jLabel11.setText("X:");
 
         jLabel12.setText("Y:");
+
+        textYrotacionar.setText("0");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -685,13 +702,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        menuAjuda.setText("Ajuda");
-        menuAjuda.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                menuAjudaMouseClicked(evt);
+        botaoExcluir.setText("Excluir selecionado");
+        botaoExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoExcluirActionPerformed(evt);
             }
         });
-        barraMenu.add(menuAjuda);
+
+        menuSobre.setText("Sobre o Projeto");
+        menuSobre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuSobreMouseClicked(evt);
+            }
+        });
+        barraMenu.add(menuSobre);
 
         setJMenuBar(barraMenu);
 
@@ -700,24 +724,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(painelDesktop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(364, 364, 364)
+                .addComponent(botaoExcluir))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(painelDesktop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 154, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(botaoExcluir)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void menuAjudaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuAjudaMouseClicked
-
-        painelDesktop.add(ajuda);
-        ajuda.setVisible(true);
-        ajuda.setPosicao();
-
-    }//GEN-LAST:event_menuAjudaMouseClicked
 
     private void textDirecaotextDirecaoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textDirecaotextDirecaoFocusLost
         // TODO add your handling code here:
@@ -833,10 +854,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void botaoInserirbotaoInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoInserirbotaoInserirActionPerformed
 
+        int aux = 0;
+        
         try {
+            
             vel = verificaDouble(textVelocidade.getText().replaceAll(",", "."));
             dir = verificaDouble(textDirecao.getText().replaceAll(",", "."));
-            Object data[] = new Object[]{false, modelo.getRowCount(),
+            
+            if (modelo.getRowCount() > 0){
+                aux = (int) modelo.getValueAt(modelo.getRowCount()-1, 1) + 1;
+            }
+            
+            Object data[] = new Object[]{false, aux,
                 String.valueOf(new DecimalFormat("#.00").format(x)), String.valueOf(new DecimalFormat("#.00").format(y)),
                 String.valueOf(new DecimalFormat("#.00").format(r)), String.valueOf(new DecimalFormat("#.00").format(ang)),
                 String.valueOf(new DecimalFormat("#.00").format(vel)), String.valueOf(new DecimalFormat("#.00").format(dir))};
@@ -947,7 +976,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             for (int j = i + 1; j < arrayPontos.size(); j++) {
                 p2 = arrayPontos.get(j);
                 dist = cal.calculaDistanciaDoisPontos(p1.getX(), p1.getY(), p2.getX(), p2.getY());
-                str2 += p2.getNome() + " - " + dist + " Km\n";
+                str2 += p2.getNome() + " - " + decimal.format(dist) + " Km\n";
 
             }
             str += str2;
@@ -962,54 +991,53 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void botãoRotaColisaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoRotaColisaoActionPerformed
 
-        double par = Double.parseDouble(JOptionPane.showInputDialog(null, "Informe o tempo mínimo: ", "Informe", JOptionPane.QUESTION_MESSAGE).replaceAll(",", "."));
-        
+        double par = Double.parseDouble(JOptionPane.showInputDialog(null, "Informe o tempo mínimo (Em segundos): ", "Informe", JOptionPane.QUESTION_MESSAGE).replaceAll(",", "."));
+
         buscarTodos();
         String str = "", str2 = "";
         Get_Set_Pontos p1, p2;
-        double t1,t2, dif;
+        double t1, t2, dif;
 
         for (int i = 0; i < arrayPontos.size() - 1; i++) {
             p1 = arrayPontos.get(i);
             str2 = p1.getNome() + ":\n";
             for (int j = i + 1; j < arrayPontos.size(); j++) {
                 p2 = arrayPontos.get(j);
-                
+
                 result = cal.calculaInterseccao(p1.getX(), p1.getY(), p1.getDir(), p2.getX(), p2.getY(), p2.getDir());
-                
-                
-                if(result == null){
-                    str2 += p2.getNome() + " - Não se cruzam.\n";
-                }else{
+
+                if (result == null) {
+                    str2 += p2.getNome() + "- Não se cruzam.\n";
+                } else {
                     t1 = cal.calculaTempo(p1.getX(), p1.getY(), p1.getVel(), result[0], result[1]);
                     t2 = cal.calculaTempo(p2.getX(), p2.getY(), p2.getVel(), result[0], result[1]);
-                    
-                    dif = t1-t2;
-                    
+
+                    dif = t1 - t2;
+
                     System.out.println(t1);
                     System.out.println(t2);
                     System.out.println(dif);
-                    if(Math.abs(dif)<par){
-                        str2 += p2.getNome() + " - Vão passar pelo mesmo ponto com intervalo de "+Math.abs(dif)+"s.\n";
-                        
+                    if (Math.abs(dif) < par) {
+                        str2 += p2.getNome() + "- Passarão pelo mesmo ponto com intervalo de " + decimal.format(Math.abs(dif)) + "s.\n";
+
                     }
                 }
 
             }
             str += str2;
         }
-        
+
         textoRelatorio.setText("" + str);
-        
+
         abasPainel.setSelectedIndex(0);
-        
+
         //JOptionPane.showMessageDialog(null, str, "Relatório", JOptionPane.INFORMATION_MESSAGE);
-         
+
     }//GEN-LAST:event_botãoRotaColisaoActionPerformed
 
     private void botãoProxAeroportoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoProxAeroportoActionPerformed
 
-        double valorDist = Double.parseDouble(JOptionPane.showInputDialog(null, "Informe a distância em Km", "Informe", JOptionPane.QUESTION_MESSAGE).replaceAll(",", "."));
+        double valorDist = Double.parseDouble(JOptionPane.showInputDialog(null, "Informe a distância em Km:", "Informe", JOptionPane.QUESTION_MESSAGE).replaceAll(",", "."));
         buscarTodos();
 
         String str = "";
@@ -1030,6 +1058,36 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_botãoProxAeroportoActionPerformed
+
+    private void menuSobreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuSobreMouseClicked
+
+        sobre.dispose();
+        painelDesktop.add(sobre);
+        sobre.setVisible(true);
+
+
+    }//GEN-LAST:event_menuSobreMouseClicked
+
+    private void textXrotacionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textXrotacionarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textXrotacionarActionPerformed
+
+    private void botaoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirActionPerformed
+        
+        buscarSelecao();
+        
+        int size = filaCalculo.size();
+        
+        for(int i=0;i<size;i++){
+            
+            modelo.removeRow(filaCalculo.poll().getLinha()-i);
+            
+        }
+        
+        t.run();
+        
+        
+    }//GEN-LAST:event_botaoExcluirActionPerformed
 
     public Double verificaDouble(String a) throws Exception {
         try {
@@ -1126,6 +1184,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuBar barraMenu;
     private javax.swing.JRadioButton botaoCartesiana;
     private javax.swing.JButton botaoEscalar;
+    private javax.swing.JButton botaoExcluir;
     private javax.swing.JButton botaoInserir;
     private javax.swing.JRadioButton botaoPolar;
     private javax.swing.JButton botaoRotacionar;
@@ -1142,6 +1201,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -1158,7 +1219,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel labelVelocidade;
     private javax.swing.JLabel labelX;
     private javax.swing.JLabel labelY;
-    private javax.swing.JMenu menuAjuda;
+    private javax.swing.JMenu menuSobre;
     private javax.swing.JPanel painelDatagrid;
     private javax.swing.JDesktopPane painelDesktop;
     private javax.swing.JPanel painelRadar;
