@@ -860,16 +860,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void botaoInserirbotaoInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoInserirbotaoInserirActionPerformed
 
         int aux = 0;
-        
+
         try {
-            
+
             vel = verificaDouble(textVelocidade.getText().replaceAll(",", "."));
             dir = verificaDouble(textDirecao.getText().replaceAll(",", "."));
-            
-            if (modelo.getRowCount() > 0){
-                aux = (int) modelo.getValueAt(modelo.getRowCount()-1, 1) + 1;
+
+            if (modelo.getRowCount() > 0) {
+                aux = (int) modelo.getValueAt(modelo.getRowCount() - 1, 1) + 1;
             }
-            
+
             Object data[] = new Object[]{false, aux,
                 String.valueOf(new DecimalFormat("#.00").format(x)), String.valueOf(new DecimalFormat("#.00").format(y)),
                 String.valueOf(new DecimalFormat("#.00").format(r)), String.valueOf(new DecimalFormat("#.00").format(ang)),
@@ -970,6 +970,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void botãoProxEntreSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoProxEntreSiActionPerformed
 
+        double valorDistSi = Double.parseDouble(JOptionPane.showInputDialog(null, "Informe a distância em Km:", "Informe", JOptionPane.QUESTION_MESSAGE).replaceAll(",", "."));
+
         buscarTodos();
         String str = "", str2 = "";
         Get_Set_Pontos p1, p2;
@@ -977,17 +979,25 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         for (int i = 0; i < arrayPontos.size() - 1; i++) {
             p1 = arrayPontos.get(i);
-            str2 = "Avião " + p1.getNome() + ":\n";
+            str2 = "";
             for (int j = i + 1; j < arrayPontos.size(); j++) {
                 p2 = arrayPontos.get(j);
                 dist = cal.calculaDistanciaDoisPontos(p1.getX(), p1.getY(), p2.getX(), p2.getY());
-                str2 += p2.getNome() + " - " + decimal.format(dist) + " Km\n";
-
+                if (dist <= valorDistSi) {
+                    str2 += "Avião " + p1.getNome() + " : Avião " + p2.getNome() + " - " + decimal.format(dist) + " Km\n";
+                }
             }
             str += str2;
         }
 
         textoRelatorio.setText("Distância entre os aviões:\n" + str);
+
+        if (str.isEmpty()) {
+            textoRelatorio.setText("Não existem aviões próximos entre sí na distância mínima indicada!");
+        } else {
+
+            textoRelatorio.setText("Os aviões abaixo estão próximos entre sí:\n" + str);
+        }
 
         abasPainel.setSelectedIndex(0);
 
@@ -1078,20 +1088,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_textXrotacionarActionPerformed
 
     private void botaoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirActionPerformed
-        
+
         buscarSelecao();
-        
+
         int size = filaCalculo.size();
-        
-        for(int i=0;i<size;i++){
-            
-            modelo.removeRow(filaCalculo.poll().getLinha()-i);
-            
+
+        for (int i = 0; i < size; i++) {
+
+            modelo.removeRow(filaCalculo.poll().getLinha() - i);
+
         }
-        
+
         t.run();
-        
-        
+
+
     }//GEN-LAST:event_botaoExcluirActionPerformed
 
     private void textYActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textYActionPerformed
